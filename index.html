@@ -3,327 +3,165 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Печюча и его верные друзья | Специализированная кофейня</title>
+    <title>ПЕЧЮЧА И ЕГО ДРУЗЬЯ | Специализированная кофейня</title>
     
-    <!-- Подключение современных шрифтов от Google -->
+    <!-- Подключение винтажных шрифтов -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,700;1,400&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
 
     <style>
-        /* Базовые настройки и переменные (цветовая схема) */
+        /* Палитра в стиле Ар-Деко (1930-е) */
         :root {
-            --color-cream: #FAF3E0;
-            --color-light-brown: #D4A373;
-            --color-medium-brown: #8D6E63;
-            --color-dark-brown: #3E2723;
-            --color-accent: #A67C52;
-            --color-white: #FFFFFF;
+            --bg-cream: #F4F1EA;
+            --bg-dark: #1A1A1A;
+            --color-gold: #C5A059;
+            --color-gold-hover: #E3C27C;
+            --text-dark: #2C2C2C;
             
-            --font-heading: 'Merriweather', serif;
-            --font-body: 'Montserrat', sans-serif;
+            --font-heading: 'Playfair Display', serif;
+            --font-body: 'Josefin Sans', sans-serif;
         }
 
-        /* Плавная прокрутка */
-        html {
-            scroll-behavior: smooth;
-        }
+        html { scroll-behavior: smooth; }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
             font-family: var(--font-body);
-            background-color: var(--color-cream);
-            color: var(--color-dark-brown);
+            background-color: var(--bg-cream);
+            color: var(--text-dark);
             line-height: 1.6;
+            font-size: 18px;
+            background-image: radial-gradient(var(--color-gold) 0.5px, transparent 0.5px);
+            background-size: 20px 20px;
+            background-position: 0 0, 10px 10px;
         }
 
         h1, h2, h3 {
             font-family: var(--font-heading);
-            margin-bottom: 1rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
         }
 
-        /* Навигация (Sticky Navbar) */
+        /* Навигация */
         header {
             position: sticky;
             top: 0;
-            background-color: var(--color-dark-brown);
-            color: var(--color-cream);
-            padding: 1rem 5%;
+            background-color: var(--bg-dark);
+            border-bottom: 3px solid var(--color-gold);
+            padding: 15px 5%;
             display: flex;
             justify-content: space-between;
             align-items: center;
             z-index: 1000;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
         }
 
-        .logo {
-            font-family: var(--font-heading);
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--color-cream);
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 10px;
+        header::after {
+            content: ''; position: absolute; bottom: -8px; left: 0; right: 0; height: 1px; background-color: var(--color-gold);
         }
 
-        nav ul {
-            list-style: none;
-            display: flex;
-            gap: 2rem;
-        }
+        .logo { font-family: var(--font-heading); font-size: 22px; color: var(--color-gold); text-decoration: none; letter-spacing: 3px; }
 
-        nav a {
-            color: var(--color-cream);
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 1rem;
-            transition: color 0.3s ease;
-            position: relative;
-        }
+        nav ul { list-style: none; display: flex; gap: 30px; }
+        nav a { color: var(--bg-cream); text-decoration: none; font-size: 14px; text-transform: uppercase; letter-spacing: 1.5px; transition: color 0.3s ease; }
+        nav a:hover { color: var(--color-gold); }
 
-        /* Анимация подчеркивания при наведении */
-        nav a::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: -5px;
-            left: 0;
-            background-color: var(--color-light-brown);
-            transition: width 0.3s ease;
-        }
-
-        nav a:hover::after {
-            width: 100%;
-        }
-
-        nav a:hover {
-            color: var(--color-light-brown);
-        }
-
-        /* Главный экран (Hero Section) */
+        /* Главный экран */
         #home {
-            height: 100vh;
-            background: linear-gradient(rgba(62, 39, 35, 0.7), rgba(62, 39, 35, 0.7)), 
-                        url('https://images.unsplash.com/photo-1497935586351-b67a49e012bf?auto=format&fit=crop&q=80') center/cover no-repeat;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            color: var(--color-cream);
-            padding: 0 20px;
+            padding: 120px 20px; text-align: center; background-color: var(--bg-dark); color: var(--bg-cream); position: relative; border-bottom: 5px solid var(--color-gold);
         }
 
-        #home h1 {
-            font-size: 4rem;
-            margin-bottom: 1rem;
-            text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
-        }
+        .deco-line { display: flex; align-items: center; justify-content: center; gap: 15px; margin: 20px 0; color: var(--color-gold); }
+        .deco-line::before, .deco-line::after { content: ''; width: 60px; height: 1px; background-color: var(--color-gold); }
 
-        #home p {
-            font-size: 1.5rem;
-            margin-bottom: 2.5rem;
-            max-width: 600px;
-        }
+        #home h1 { font-size: 56px; line-height: 1.2; color: var(--color-gold); margin: 20px auto; max-width: 900px; }
+        #home p { font-size: 22px; font-weight: 300; margin-bottom: 40px; max-width: 700px; margin-left: auto; margin-right: auto; font-style: italic; font-family: var(--font-heading); color: var(--bg-cream); }
 
         .btn {
-            display: inline-block;
-            padding: 15px 35px;
-            background-color: var(--color-light-brown);
-            color: var(--color-dark-brown);
-            text-decoration: none;
-            font-weight: 700;
-            border-radius: 30px;
-            font-size: 1.1rem;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(212, 163, 115, 0.4);
+            display: inline-block; padding: 15px 35px; background-color: transparent; color: var(--color-gold); text-decoration: none; font-size: 16px; text-transform: uppercase; letter-spacing: 2px; border: 2px solid var(--color-gold); transition: all 0.3s ease; position: relative;
+        }
+        .btn:hover { background-color: var(--color-gold); color: var(--bg-dark); }
+
+        .hero-image {
+            margin: 60px auto 0; width: 100%; max-width: 800px; height: 400px; background: url('https://images.unsplash.com/photo-1559525839-b184a4d698c7?auto=format&fit=crop&q=80') center/cover no-repeat;
+            filter: sepia(80%) contrast(120%) brightness(80%); border: 4px solid var(--color-gold); position: relative;
+        }
+        .hero-image::after {
+            content: ''; position: absolute; top: 10px; left: 10px; right: 10px; bottom: 10px; border: 1px solid var(--color-gold); pointer-events: none;
         }
 
-        .btn:hover {
-            background-color: var(--color-accent);
-            color: var(--color-cream);
-            transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(212, 163, 115, 0.6);
-        }
+        /* Общие стили секций */
+        section { padding: 100px 5%; }
+        .section-title { text-align: center; font-size: 40px; color: var(--bg-dark); margin-bottom: 10px; }
 
-        /* Общие стили для секций */
-        section {
-            padding: 5rem 5%;
-        }
+        /* О компании */
+        .about-container { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; max-width: 1100px; margin: 0 auto; }
+        .about-text h2 { font-size: 32px; margin-bottom: 20px; }
+        .about-text p:first-of-type::first-letter { font-family: var(--font-heading); font-size: 60px; float: left; line-height: 50px; padding-right: 10px; color: var(--color-gold); }
+        .about-text p { margin-bottom: 20px; text-align: justify; }
+        .about-image img { width: 100%; filter: grayscale(100%) contrast(130%); border: 2px solid var(--bg-dark); padding: 10px; background-color: var(--bg-cream); }
 
-        .section-title {
-            text-align: center;
-            font-size: 2.5rem;
-            color: var(--color-dark-brown);
-            margin-bottom: 3rem;
-            position: relative;
-        }
-
-        .section-title::after {
-            content: '';
-            display: block;
-            width: 60px;
-            height: 3px;
-            background-color: var(--color-light-brown);
-            margin: 15px auto 0;
-        }
-
-        /* О компании (About Section) */
-        #about {
-            background-color: var(--color-white);
-        }
-
-        .about-container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .about-text p {
-            font-size: 1.1rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .about-image img {
-            width: 100%;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease;
-        }
-
-        .about-image img:hover {
-            transform: scale(1.02);
-        }
-
-        /* Меню (Menu Preview Section) */
-        #menu {
-            background-color: var(--color-cream);
-        }
+        /* Меню с Картинками */
+        #menu { background-color: var(--bg-dark); color: var(--bg-cream); border-top: 2px solid var(--color-gold); border-bottom: 2px solid var(--color-gold); }
+        #menu .section-title { color: var(--color-gold); }
 
         .menu-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); /* Авто-адаптация для 4 колонок */
+            gap: 30px;
             max-width: 1200px;
             margin: 0 auto;
         }
 
         .menu-item {
-            background-color: var(--color-white);
-            border-radius: 15px;
-            padding: 2rem;
+            background-color: var(--bg-dark);
+            border: 2px solid var(--color-gold);
+            padding: 20px; /* Уменьшил паддинг, чтобы влезло фото */
             text-align: center;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            transition: all 0.4s ease;
-            border-bottom: 5px solid transparent;
+            position: relative;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
         }
 
-        .menu-item:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
-            border-bottom: 5px solid var(--color-light-brown);
+        .menu-item::after { content: ''; position: absolute; top: 6px; left: 6px; right: 6px; bottom: 6px; border: 1px solid rgba(197, 160, 89, 0.5); pointer-events: none; }
+        .menu-item:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.5); background-color: #222; }
+
+        /* Стиль для ваших фотографий кофе */
+        .menu-photo {
+            width: 100%;
+            height: 220px;
+            object-fit: cover; /* Чтобы фото обрезалось ровно по квадрату и не сплющивалось */
+            border: 2px solid var(--color-gold);
+            margin-bottom: 20px;
+            filter: sepia(40%) contrast(110%); /* Легкий винтажный фильтр */
         }
 
-        .menu-icon {
-            font-size: 3rem;
-            margin-bottom: 1rem;
+        .menu-item h3 { font-size: 18px; color: var(--color-gold); margin-bottom: 10px; line-height: 1.3;}
+        .menu-item p { font-size: 15px; margin-bottom: 20px; font-weight: 300; flex-grow: 1; }
+        .price { font-family: var(--font-heading); font-weight: 700; font-size: 22px; color: var(--bg-cream); }
+
+        /* Контакты */
+        .contact-container { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; max-width: 1000px; margin: 0 auto; border: 2px solid var(--bg-dark); padding: 50px; background-color: #fff; position: relative; }
+        .contact-container::after { content: ''; position: absolute; top: 8px; left: 8px; right: 8px; bottom: 8px; border: 1px solid var(--bg-dark); pointer-events: none; }
+        .info-block { margin-bottom: 30px; text-align: center; }
+        .info-block h3 { font-size: 18px; color: var(--color-gold); margin-bottom: 10px; }
+
+        footer { background-color: var(--bg-dark); color: var(--color-gold); text-align: center; padding: 30px; font-size: 14px; text-transform: uppercase; letter-spacing: 2px; font-family: var(--font-heading); }
+
+        /* Адаптивность */
+        @media screen and (max-width: 834px) {
+            #home h1 { font-size: 40px; }
+            .about-container, .contact-container { grid-template-columns: 1fr; }
         }
-
-        .menu-item h3 {
-            font-size: 1.5rem;
-            color: var(--color-accent);
-        }
-
-        .menu-item p {
-            color: var(--color-medium-brown);
-            font-size: 0.95rem;
-            margin-bottom: 1rem;
-        }
-
-        .price {
-            font-weight: 700;
-            font-size: 1.2rem;
-            color: var(--color-dark-brown);
-        }
-
-        /* Контакты (Contact Section) */
-        #contact {
-            background-color: var(--color-white);
-        }
-
-        .contact-container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            max-width: 1000px;
-            margin: 0 auto;
-            background-color: var(--color-cream);
-            padding: 3rem;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-        }
-
-        .info-block {
-            margin-bottom: 2rem;
-        }
-
-        .info-block h3 {
-            color: var(--color-accent);
-            font-size: 1.2rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .info-block p {
-            font-size: 1.1rem;
-        }
-
-        /* Футер */
-        footer {
-            background-color: var(--color-dark-brown);
-            color: var(--color-cream);
-            text-align: center;
-            padding: 2rem;
-        }
-
-        /* Адаптивность для мобильных устройств */
-        @media screen and (max-width: 768px) {
-            header {
-                flex-direction: column;
-                padding: 1rem;
-            }
-
-            nav ul {
-                margin-top: 1rem;
-                gap: 1rem;
-                flex-wrap: wrap;
-                justify-content: center;
-            }
-
-            #home h1 {
-                font-size: 2.8rem;
-            }
-
-            #home p {
-                font-size: 1.2rem;
-            }
-
-            .about-container, .contact-container {
-                grid-template-columns: 1fr;
-            }
-
-            .contact-container {
-                padding: 2rem;
-            }
+        @media screen and (max-width: 480px) {
+            header { flex-direction: column; gap: 15px; }
+            nav ul { flex-wrap: wrap; justify-content: center; gap: 15px; }
+            #home h1 { font-size: 32px; }
+            .hero-image { height: 250px; }
+            .menu-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -332,11 +170,10 @@
     <!-- Навигация -->
     <header>
         <a href="#home" class="logo">
-            ☕ Печюча и его верные друзья
+            ПЕЧЮЧА И ЕГО ДРУЗЬЯ
         </a>
         <nav>
             <ul>
-                <li><a href="#home">Главная</a></li>
                 <li><a href="#about">О нас</a></li>
                 <li><a href="#menu">Меню</a></li>
                 <li><a href="#contact">Контакты</a></li>
@@ -346,87 +183,94 @@
 
     <!-- Главный экран -->
     <section id="home">
+        <div class="deco-line">⚜</div>
         <h1>Симфония вкуса<br>в каждой чашке</h1>
-        <p>Специализированная кофейня «Печюча и его верные друзья». Пробуди свой день с нашей идеальной обжаркой.</p>
-        <a href="#menu" class="btn">Посмотреть меню</a>
+        <div class="deco-line">⚜</div>
+        <p>Специализированная кофейня «ПЕЧЮЧА И ЕГО ДРУЗЬЯ». Пробудите свой день с нашей идеальной обжаркой, господа.</p>
+        <a href="#menu" class="btn">Изучить меню</a>
+        <div class="hero-image"></div>
     </section>
 
     <!-- О компании -->
     <section id="about">
-        <h2 class="section-title">Наша история</h2>
+        <h2 class="section-title">История Заведения</h2>
+        <div class="deco-line" style="color: var(--bg-dark);">♦</div>
         <div class="about-container">
             <div class="about-image">
-                <img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&q=80" alt="Бариста готовит кофе">
+                <img src="https://images.unsplash.com/photo-1497935586351-b67a49e012bf?auto=format&fit=crop&q=80" alt="Интерьер кофейни 1930х">
             </div>
             <div class="about-text">
-                <p>Все началось с компании неразлучных друзей, которые обожали хороший кофе и уютные беседы. Так родилась идея кофейни <strong>«Печюча и его друзья»</strong>.</p>
-                <p>Мы верим, что приготовление кофе — это не просто рутина, а настоящее искусство общения. В нашей кофейне мы используем только спешелти-зерна светлой и средней обжарки, чтобы раскрыть неповторимый характер каждого региона.</p>
-                <p>Наша миссия — создать теплое пространство, куда хочется возвращаться с друзьями, где каждый глоток звучит безупречно, а атмосфера вдохновляет.</p>
+                <p>Всё началось в золотую эпоху с компании истинных джентльменов и дам, которые обожали крепкий кофе, джаз и интеллектуальные беседы. Именно тогда в светлых умах зародилась идея открыть двери заведения <strong>«ПЕЧЮЧА И ЕГО ДРУЗЬЯ»</strong>.</p>
+                <p>Мы убеждены, что приготовление кофейного напитка — это не просто ремесло, а высочайшее искусство. В нашем заведении используются исключительно отборные спешелти-зерна, обжаренные по классическим технологиям.</p>
+                <p>Наша миссия — сохранить атмосферу элегантности ушедшей эпохи, создав место, куда хочется приходить в лучшем костюме, чтобы насладиться безупречным вкусом.</p>
             </div>
         </div>
     </section>
 
-    <!-- Предпросмотр меню -->
+    <!-- Меню с Вашими картинками -->
     <section id="menu">
-        <h2 class="section-title">Наши хиты</h2>
+        <h2 class="section-title">Золотые Хиты</h2>
+        <div class="deco-line">♦</div>
         <div class="menu-grid">
+            
             <!-- Напиток 1 -->
             <div class="menu-item">
-                <div class="menu-icon">☕</div>
-                <h3>Эспрессо «Печюча»</h3>
+                <img src="Espresso1.jpeg" alt="Эспрессо Печюча" class="menu-photo">
+                <h3>ЭСПРЕССО «ПЕЧЮЧА»</h3>
                 <p>Дерзкий, бодрящий и бескомпромиссный. Двойной шот из 100% арабики из Эфиопии с нотами темного шоколада.</p>
                 <div class="price">1 200 ₸</div>
             </div>
+            
             <!-- Напиток 2 -->
             <div class="menu-item">
-                <div class="menu-icon">🥛</div>
-                <h3>Латте «Лучший друг»</h3>
+                <img src="Latte2.jpg" alt="Латте Лучший друг" class="menu-photo">
+                <h3>ЛАТТЕ «ЛУЧШИЙ ДРУГ»</h3>
                 <p>Мягкий, верный и сливочный. Идеальный баланс фермерского молока и деликатной обжарки.</p>
                 <div class="price">1 600 ₸</div>
             </div>
+            
             <!-- Напиток 3 -->
             <div class="menu-item">
-                <div class="menu-icon">🍂</div>
-                <h3>Капучино «Теплая беседа»</h3>
+                <img src="Cappucino3.jpg" alt="Капучино Теплая беседа" class="menu-photo">
+                <h3>КАПУЧИНО «ТЕПЛАЯ БЕСЕДА»</h3>
                 <p>Глубокий и уютный. Классический капучино с добавлением домашнего пряного сиропа и корицы.</p>
                 <div class="price">1 500 ₸</div>
             </div>
+
             <!-- Напиток 4 -->
             <div class="menu-item">
-                <div class="menu-icon">🧊</div>
-                <h3>Фраппе «Веселая компания»</h3>
+                <img src="Frappe4.jpg" alt="Фраппе Веселая компания" class="menu-photo">
+                <h3>ФРАППЕ «ВЕСЕЛАЯ КОМПАНИЯ»</h3>
                 <p>Яркий и освежающий! Холодный кофейный напиток со льдом, карамелью и щепоткой радости.</p>
                 <div class="price">1 800 ₸</div>
             </div>
+
         </div>
     </section>
 
     <!-- Контакты -->
     <section id="contact">
-        <h2 class="section-title">Ждем вас в гости</h2>
+        <h2 class="section-title">Ждем Вашего Визита</h2>
+        <div class="deco-line" style="color: var(--bg-dark);">♦</div>
         <div class="contact-container">
             <div class="contact-info">
                 <div class="info-block">
-                    <h3>📍 Локация</h3>
-                    <p>ул. Кофейная, д. 4<br>Центральный район, Алматы</p>
+                    <h3>АДРЕС</h3>
+                    <p>ул. Кофейная, д. 4<br>Исторический центр, Алматы</p>
                 </div>
                 <div class="info-block">
-                    <h3>📞 Связь с нами</h3>
-                    <p>+7 (777) 123-45-67<br>hello@pechucha.kz</p>
-                </div>
-                <div class="info-block">
-                    <h3>Мы в соцсетях</h3>
-                    <p>@pechucha_coffee</p>
+                    <h3>ТЕЛЕГРАФЪ И ТЕЛЕФОНЪ</h3>
+                    <p>+7 (777) 123-45-67<br>post@pechucha.kz</p>
                 </div>
             </div>
             <div class="contact-hours">
                 <div class="info-block">
-                    <h3>⏰ Часы работы</h3>
-                    <p><strong>Понедельник - Пятница:</strong><br>08:00 – 23:00</p>
-                    <br>
-                    <p><strong>Суббота - Воскресенье:</strong><br>09:00 – 00:00</p>
-                    <br>
-                    <p><em>Завтраки подаются весь день!</em></p>
+                    <h3>БУДНИЕ ДНИ</h3>
+                    <p>08:00 – 22:00</p>
+                </div>
+                <div class="info-block">
+                    <h3>ВЫХОДНЫЕ</h3>
+                    <p>09:00 – 23:00</p>
                 </div>
             </div>
         </div>
@@ -434,7 +278,7 @@
 
     <!-- Подвал -->
     <footer>
-        <p>&copy; 2026 Кофейня «Печюча и его друзья». Все права защищены.</p>
+        <p>&copy; 2026 Кофейня «ПЕЧЮЧА И ЕГО ДРУЗЬЯ». Основано на традициях.</p>
     </footer>
 
 </body>
